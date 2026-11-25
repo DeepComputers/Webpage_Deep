@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>On-Demand Special Orders | Deep Computers &amp; Telecom</title>
+  <meta name="description" content="Order rare laptops, gaming rigs, workstations, commercial plotters, and CCTV systems on demand directly from authorized distributors. Instant quote via WhatsApp.">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo-square.png">
+  <link rel="stylesheet" href="/assets/styles.css?v=32">
+  <link rel="stylesheet" href="/assets/onorder.css?v=4">
+  <script src="/assets/onorder.js?v=4" defer></script>
+</head>
+<body>
+  <!-- Sticky Site Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Open menu" type="button">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a class="wordmark" href="/" aria-label="Deep Computers &amp; Telecom home">
+        <span class="wordmark-icon" aria-hidden="true"><img src="/assets/logo.png" alt="Deep Computers &amp; Telecom" /></span>
+        <span class="wordmark-copy">
+          <span class="wordmark-name">Deep Computers <span class="wordmark-light">&amp; Telecom</span></span>
+          <span class="wordmark-since">SINCE 1999 · RAMNAGAR</span>
+        </span>
+      </a>
+    </div>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/catalog.html">Catalog</a>
+      <a href="/onorder.html" aria-current="page" style="color: #25d366; font-weight: 700;">⚡ On-Order</a>
+      <a href="/services.html">Services &amp; Repairs</a>
+      <a href="/#bajaj-finance">0% EMI</a>
+      <a class="nav-contact-link" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20have%20an%20on-demand%20order%20inquiry." target="_blank" rel="noopener noreferrer">
+        <span>💬 Talk to us</span>
+      </a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/catalog.html" class="header-icon-btn" aria-label="Search catalog" title="Search catalog">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Store Announcement Bar -->
+  <aside class="top-utility-bar" aria-label="Store highlights and fast support">
+    <div class="top-utility-inner">
+      <div class="top-utility-left">
+        <span class="top-utility-badge">AUTHORIZED DISTRIBUTOR SOURCING</span>
+        <span class="top-utility-item">⏱️ Ready in 24–48 Hours on Demand</span>
+        <span class="top-utility-badge top-utility-badge-gold">💳 0% BAJAJ EMI</span>
+        <span class="top-utility-item hide-mobile" style="color: #0284c7; font-weight: 700;">🤝 Dedicated After-Sales Service &gt; Just The Price</span>
+      </div>
+      <div class="top-utility-right">
+        <span class="top-utility-item">🕒 Mon–Sun: 10 AM–8 PM (Fri: Closes at 12 PM)</span>
+                <a class="top-utility-link wa-accent" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+          💬 WA: 9927079209
+        </a>
+        <a class="top-utility-link wa-accent hide-mobile" href="https://wa.me/918218762210?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+          💬 WA: 8218762210
+        </a>
+        <a class="top-utility-link wa-accent hide-mobile" href="https://wa.me/919837022521?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+          💬 WA: 9837022521
+        </a>
+        <a class="top-utility-link hide-mobile" href="/#store-location">📍 Ramnagar, UK</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer" hidden role="dialog" aria-modal="true" aria-label="Main Menu">
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu" type="button">✕</button>
+        <a class="wordmark" href="/" aria-label="Deep Computers">
+          <span class="wordmark-icon" aria-hidden="true"><img src="/assets/logo.png" alt="Deep Computers &amp; Telecom" /></span>
+          <span class="wordmark-name">Deep Computers</span>
+        </a>
+      </div>
+
+      <nav class="drawer-nav">
+        <a href="/" class="drawer-item">
+          <span>🏠 Home</span>
+          <span class="drawer-plus">›</span>
+        </a>
+        <a href="/catalog.html" class="drawer-item">
+          <span>📦 In-Stock Catalog</span>
+          <span class="drawer-plus">›</span>
+        </a>
+        <a href="/onorder.html" class="drawer-item drawer-item-highlight">
+          <span>⚡ On-Demand Orders (Direct Sourcing)</span>
+          <span class="drawer-plus">›</span>
+        </a>
+        <a href="/services.html" class="drawer-item">
+          <span>🛠️ Services &amp; Laptop Repairs</span>
+          <span class="drawer-plus">›</span>
+        </a>
+        <a href="/#bajaj-finance" class="drawer-item">
+          <span>💳 0% Bajaj EMI Options</span>
+          <span class="drawer-plus">›</span>
+        </a>
+        <a href="/admin.html" class="drawer-item drawer-admin-item">
+          <span>🔒 Admin Portal</span>
+          <span class="drawer-plus">›</span>
+        </a>
+      </nav>
+
+      <div class="drawer-footer">
+        <p class="drawer-footer-title">Direct Contact &amp; Support</p>
+        <div class="drawer-contacts-group">
+                    <a class="drawer-contact-btn drawer-contact-wa" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp: 9927079209</span>
+          </a>
+          <a class="drawer-contact-btn drawer-contact-wa" href="https://wa.me/918218762210?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp: 8218762210</span>
+          </a>
+          <a class="drawer-contact-btn drawer-contact-wa" href="https://wa.me/919837022521?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp: 9837022521</span>
+          </a>
+          <a class="drawer-contact-btn drawer-contact-call" href="tel:+919927079209">
+            <span>📞 Call: 9927079209 / 8218762210 / 9837022521</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="onorder-hero">
+      <div class="onorder-hero-inner">
+        <div class="onorder-pill-badge">
+          <span>⚡</span> Direct Distributor Sourcing
+        </div>
+        <h1>Order on Demand: <span class="highlight">Get Any Product You Need</span></h1>
+        <p>Looking for a specific flagship gaming laptop,high-end commercial printer, enterprise CCTV setup, or custom workstation not in everyday stock? We source directly from official brand distributors with 100% genuine brand warranty. Select what you need — <strong>exact quotation and arrival time will be confirmed directly on WhatsApp</strong>.</p>
+
+        <div class="onorder-hero-perks">
+          <div class="onorder-perk">
+            <span class="onorder-perk-icon">🛡️</span>
+            <span>100% Genuine Brand Warranty</span>
+          </div>
+          <div class="onorder-perk">
+            <span class="onorder-perk-icon">⏱️</span>
+            <span>Sourced in 24–48 Hours</span>
+          </div>
+          <div class="onorder-perk">
+            <span class="onorder-perk-icon">💳</span>
+            <span>0% Interest Bajaj EMI Available</span>
+          </div>
+          <div class="onorder-perk">
+            <span class="onorder-perk-icon">💬</span>
+            <span>Zero Upfront Cost to Inquire</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="onorder-container">
+      <!-- Custom Model Request Callout -->
+      <div class="custom-request-box">
+        <div class="custom-request-info">
+          <h3>Need a custom laptop, PC build, or specific model not listed below?</h3>
+          <p>Tell us your exact model number, processor, or specs — we'll check authorized distributor stock and send you the lowest quotation on WhatsApp within minutes.</p>
+        </div>
+        <button type="button" class="btn-custom-request" onclick="openOrderModal(null)">
+          <span>💬</span> Request Custom Product on WhatsApp
+        </button>
+      </div>
+
+      <!-- Controls (Search & Chips) -->
+      <div class="onorder-controls">
+        <div class="onorder-search-box">
+          <span class="onorder-search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input type="text" id="search-input" class="onorder-search-input" placeholder="Search by model, brand (Dell, HP, Lenovo, ASUS, Hikvision), or specs...">
+        </div>
+
+        <div class="onorder-filter-group">
+          <span class="onorder-filter-label">Filter by Brand:</span>
+          <div class="onorder-chips" id="brand-chips">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div class="onorder-filter-group" style="margin-top: 14px;">
+          <span class="onorder-filter-label">Filter by Category:</span>
+          <div class="onorder-chips" id="category-chips">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <h2 style="font-size: 20px; font-weight: 800; color: #0f172a; margin: 0;">Featured On-Demand Products</h2>
+        <span id="product-count" style="font-size: 13px; font-weight: 700; color: #64748b; background: #e2e8f0; padding: 4px 10px; border-radius: 9999px;">Loading...</span>
+      </div>
+
+      <!-- Dynamic Product Grid -->
+      <div class="onorder-grid" id="onorder-grid">
+        <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #64748b;">
+          Loading authorized on-demand catalog...
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive WhatsApp Order Modal -->
+  <div id="order-modal" class="onorder-modal-backdrop" hidden role="dialog" aria-modal="true" aria-label="Confirm On-Demand Order">
+    <div class="onorder-modal">
+      <div class="onorder-modal-header">
+        <h3>⚡ Confirm On-Demand Order</h3>
+        <button type="button" id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="onorder-modal-body">
+        <div id="modal-prod-summary" class="modal-prod-summary" hidden>
+          <div class="modal-prod-title" id="modal-prod-title">Selected Product Name</div>
+          <div class="modal-prod-meta">
+            <span id="modal-prod-brand">Brand: Dell</span>
+            <span id="modal-prod-eta">ETA: 24–48 Hours</span>
+          </div>
+        </div>
+
+        <form id="onorder-form">
+          <div class="form-field">
+            <label for="cust-name">Your Full Name *</label>
+            <input type="text" id="cust-name" placeholder="e.g. Rahul Sharma" required autocomplete="name">
+          </div>
+
+          <div class="form-field">
+            <label for="cust-phone">WhatsApp Number *</label>
+            <input type="tel" id="cust-phone" placeholder="e.g. 9876543210" required autocomplete="tel">
+          </div>
+
+          <div class="form-field">
+            <label for="cust-prod-name">Product Model / Name *</label>
+            <input type="text" id="cust-prod-name" placeholder="e.g. Dell Alienware M16 R2 or HP Victus" required>
+          </div>
+
+          <div class="form-field">
+            <label for="cust-brand">Brand (Dell, HP, Lenovo, ASUS, Acer, Hikvision, etc.)</label>
+            <input type="text" id="cust-brand" placeholder="e.g. Dell">
+          </div>
+
+          <div class="form-field">
+            <label for="cust-notes">Custom Requirements / Notes (Optional)</label>
+            <textarea id="cust-notes" rows="2" placeholder="e.g. Need 32GB RAM upgrade, Windows 11 Pro, or bill with GST"></textarea>
+          </div>
+
+          <div class="wa-preview-box">
+            <div id="wa-preview-text" style="white-space: pre-line; font-family: monospace;"></div>
+          </div>
+
+          <button type="submit" id="btn-submit-order" class="btn-confirm-wa">
+            <span>💬</span> Confirm &amp; Send on WhatsApp
+          </button>
+          <p style="text-align: center; font-size: 11.5px; color: #64748b; margin: 10px 0 0;">
+            🔒 Sourced through Deep Computers Authorized Distributor Network. No payment required until order confirmation.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Store Trust Badges Section -->
+  <section style="background: #ffffff; border-top: 1px solid #e2e8f0; padding: 48px max(4vw, calc((100vw - 1280px) / 2));">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; text-align: center;">
+      <div style="padding: 16px;">
+        <span style="font-size: 32px; display: block; margin-bottom: 8px;">🛡️</span>
+        <h4 style="margin: 0 0 6px; font-size: 16px; font-weight: 800;">100% Genuine Brand Warranty</h4>
+        <p style="margin: 0; font-size: 13px; color: #64748b;">Directly covered by Dell, HP, Lenovo, ASUS, Canon &amp; Hikvision official service centers across India.</p>
+      </div>
+      <div style="padding: 16px;">
+        <span style="font-size: 32px; display: block; margin-bottom: 8px;">⏱️</span>
+        <h4 style="margin: 0 0 6px; font-size: 16px; font-weight: 800;">24–48h Distributor Dispatch</h4>
+        <p style="margin: 0; font-size: 13px; color: #64748b;">Priority shipping directly from primary regional distributor hubs straight to our Ramnagar showroom.</p>
+      </div>
+      <div style="padding: 16px;">
+        <span style="font-size: 32px; display: block; margin-bottom: 8px;">💳</span>
+        <h4 style="margin: 0 0 6px; font-size: 16px; font-weight: 800;">0% Interest Bajaj Finserv EMI</h4>
+        <p style="margin: 0; font-size: 13px; color: #64748b;">Enjoy easy monthly installments with zero down payment on authorized special orders.</p>
+      </div>
+      <div style="padding: 16px;">
+        <span style="font-size: 32px; display: block; margin-bottom: 8px;">🤝</span>
+        <h4 style="margin: 0 0 6px; font-size: 16px; font-weight: 800;">Trusted Since 1999</h4>
+        <p style="margin: 0; font-size: 13px; color: #64748b;">Serving Ramnagar, Kashipur, Haldwani &amp; Kumaon with 25+ years of verified IT excellence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="background:#0b1528; color:#cbd5e1; padding: 48px max(4vw, calc((100vw - 1280px) / 2)); border-top: 1px solid #1e3357;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px;">
+      <div style="max-width: 380px;">
+        <div class="wordmark" style="color: #fff; margin-bottom: 12px;">
+          <span class="wordmark-icon" style="background:#fff;"><img src="/assets/logo.png" alt="Deep Computers" /></span>
+          <span class="wordmark-copy">
+            <span class="wordmark-name">Deep Computers</span>
+            <span class="wordmark-since" style="color:#38bdf8;">ESTABLISHED 1999</span>
+          </span>
+        </div>
+        <p style="font-size: 13px; line-height: 1.6; color: #94a3b8;">Ramnagar's premier destination for genuine laptops, custom desktop rigs, commercial printing equipment, and advanced CCTV security systems.</p>
+      </div>
+
+      <div>
+        <h4 style="color: #fff; font-size: 14px; font-weight: 700; text-transform: uppercase; margin: 0 0 14px;">Quick Links</h4>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <a href="/" style="color:#cbd5e1;">Home</a>
+          <a href="/catalog.html" style="color:#cbd5e1;">In-Stock Products</a>
+          <a href="/onorder.html" style="color:#38bdf8; font-weight:700;">⚡ On-Demand Orders</a>
+          <a href="/services.html" style="color:#cbd5e1;">Services &amp; Repairs</a>
+          <a href="/#bajaj-finance" style="color:#cbd5e1;">0% Bajaj EMI</a>
+          <a href="/admin.html" style="color:#d97706;">Admin Sign In</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color: #fff; font-size: 14px; font-weight: 700; text-transform: uppercase; margin: 0 0 14px;">Showroom &amp; Support</h4>
+        <p style="font-size: 13px; margin: 0 0 8px; color: #cbd5e1;">📍 Near Railway Station / Main Market, Ramnagar, Nainital (UK) - 244715</p>
+        <p style="font-size: 13px; margin: 0 0 8px;">💬 WhatsApp 1: <a href="https://wa.me/919927079209" style="color:#25d366; font-weight:700;">9927079209</a></p>
+        <p style="font-size: 13px; margin: 0 0 8px;">💬 WhatsApp 2: <a href="https://wa.me/918218762210" style="color:#25d366; font-weight:700;">8218762210</a></p>
+        <p style="font-size: 13px; margin: 0 0 8px;">💬 WhatsApp 3: <a href="https://wa.me/919837022521" style="color:#25d366; font-weight:700;">9837022521</a></p>
+        <p style="font-size: 13px; margin: 0 0 8px;">📞 Call Store: <a href="tel:+919927079209" style="color:#38bdf8; font-weight:700;">9927079209</a> &middot; <a href="tel:+918218762210" style="color:#38bdf8; font-weight:700;">8218762210</a> &middot; <a href="tel:+919837022521" style="color:#38bdf8; font-weight:700;">9837022521</a></p>
+        <p style="font-size: 13px; margin: 0; color: #94a3b8;">🕒 Open: 10:00 AM - 8:00 PM (Friday: Closes 12:00 PM)</p>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid #1e3357; padding-top: 20px; text-align: center; font-size: 12px; color: #64748b;">
+      &copy; 1999–2026 Deep Computers &amp; Telecom. All rights reserved. Authorized Partner for Dell, HP, Lenovo, ASUS, Acer, Hikvision, Canon &amp; Brother.
+    </div>
+  </footer>
+</body>
+</html>

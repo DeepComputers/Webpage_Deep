@@ -1,0 +1,28 @@
+{
+  "certificates": [
+    {
+      "id": 5,
+      "title": "Canon Authorised Reseller",
+      "issuer": "Canon India Pvt. Ltd.",
+      "description": "Certified to Stock & Sell Canon Inkjet/Laser Printers & Consumables to End customers from retail outlets.",
+      "credential_id": "CANON-RESELLER-2026",
+      "issued_on": "2026-01-01",
+      "expires_on": "2026-12-31",
+      "document_url": "/assets/uploads/canon_authorised_reseller_certificate.jpg",
+      "display_order": 1,
+      "is_published": 1
+    },
+    {
+      "id": 6,
+      "title": "Tally Authorised Star Associate Partner",
+      "issuer": "Tally Solutions Pvt. Ltd.",
+      "description": "Recognised as an official Tally authorised Star Associate Partner for TallyPrime business software, licenses, and enterprise solutions.",
+      "credential_id": "TALLY-STAR-PARTNER",
+      "issued_on": "2024-04-01",
+      "expires_on": "2025-03-31",
+      "document_url": "/assets/uploads/tally_star_associate_partner_certificate.jpg",
+      "display_order": 2,
+      "is_published": 1
+    }
+  ]
+}

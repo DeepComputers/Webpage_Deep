@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/frontend/admin.html"
+    },
+    {
+      "source": "/catalog",
+      "destination": "/frontend/catalog.html"
+    },
+    {
+      "source": "/onorder",
+      "destination": "/frontend/onorder.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/frontend/services.html"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "https://6379e7b040dd6b.lhr.life/api/$1"
+    }
+  ]
+}

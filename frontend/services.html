@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0284c7">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Deep Computers">
+  <meta name="application-name" content="Deep Computers">
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="description" content="Expert repair services for Laptops, Desktops, and Printers in Ramnagar by Deep Computers &amp; Telecom (Since 1999). Fast SSD upgrades, cracked screen replacements, and printer head cleaning.">
+  <title>Technical Services &amp; Repairs | Deep Computers &amp; Telecom</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo-square.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+  <!-- Tailwind CSS Engine & Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          colors: {
+            brandCyan: '#00f0ff',
+            brandBlue: '#0284c7',
+            darkBg: '#090e17',
+            darkCard: '#0f172a'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="/assets/styles.css?v=32">
+  <style>
+    .services-page-hero {
+      padding: 54px max(4vw, calc((100vw - 1280px) / 2)) 40px;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 55%, #eff6ff 100%);
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+    }
+    .services-page-hero-inner {
+      max-width: 780px;
+      position: relative;
+      z-index: 2;
+    }
+    .services-page-hero .eyebrow {
+      color: #0284c7;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .services-page-hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(32px, 4.2vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      color: #0f172a;
+    }
+    .services-page-hero h1 span {
+      background: linear-gradient(90deg, #0284c7, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .services-page-hero p {
+      font-size: clamp(14px, 1.4vw, 16px);
+      color: #475569;
+      line-height: 1.6;
+      margin: 0 0 24px;
+      max-width: 640px;
+    }
+    .services-hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-hero-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #ffffff !important;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 9px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn-hero-wa:hover {
+      background: #1eb857;
+      transform: translateY(-2px);
+    }
+    .btn-hero-catalog {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      color: #0f172a !important;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 9px;
+      border: 1px solid #cbd5e1;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: all 0.15s ease;
+    }
+    .btn-hero-catalog:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .services-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #cbd5e1;
+    }
+    .services-stat-item strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      color: #0284c7;
+      letter-spacing: -0.5px;
+    }
+    .services-stat-item span {
+      font-size: 11.5px;
+      color: #64748b;
+    }
+    .service-process-section {
+      padding: 56px max(4vw, calc((100vw - 1280px) / 2));
+      background: #ffffff;
+      border-bottom: 1px solid #e9edf3;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .process-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+    }
+    .process-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+    }
+    .process-card h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .process-card p {
+      margin: 0;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    @media (max-width: 800px) {
+      .services-stats-strip { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media (max-width: 500px) {
+      .services-stats-strip { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Open menu" type="button">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a class="wordmark" href="/" aria-label="Deep Computers &amp; Telecom home">
+        <span class="wordmark-icon" aria-hidden="true"><img src="/assets/logo.png" alt="Deep Computers &amp; Telecom" /></span>
+        <span class="wordmark-copy">
+          <span class="wordmark-name">Deep Computers <span class="wordmark-light">&amp; Telecom</span></span>
+          <span class="wordmark-since">SINCE 1999 · RAMNAGAR</span>
+        </span>
+      </a>
+    </div>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="/catalog.html">Catalog</a>
+      <a href="/onorder.html" style="color:#2563eb; font-weight:700;">⚡ On-Order</a>
+      <a href="/services.html" aria-current="page" style="color:var(--blue); font-weight:800;">Services</a>
+      <a href="/#bajaj-finance">EMI Plans</a>
+      <a href="/#certifications">Certificates</a>
+      <a class="nav-contact-link" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers" target="_blank" rel="noopener noreferrer">Talk to us</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="/catalog.html" class="header-icon-btn" aria-label="Browse catalog" title="Browse catalog">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Store Announcement & Utility Bar (Under Header) -->
+  <aside class="top-utility-bar" aria-label="Store highlights and fast support">
+    <div class="top-utility-inner">
+      <div class="top-utility-left">
+        <span class="top-utility-badge">AUTHORIZED PARTNER</span>
+        <span class="top-utility-item">🛡️ 100% Genuine Brand Warranty</span>
+        <span class="top-utility-badge top-utility-badge-gold">💳 0% BAJAJ EMI</span>
+        <span class="top-utility-item hide-mobile" style="color: #0284c7; font-weight: 700;">🤝 Dedicated After-Sales Service &gt; Just The Price</span>
+      </div>
+      <div class="top-utility-right">
+        <span class="top-utility-item">🕒 Mon–Sun: 10 AM–8 PM (Fri: Closes at 12 PM)</span>
+                <a class="top-utility-link wa-accent" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+          💬 WA: 9927079209
+        </a>
+        <a class="top-utility-link wa-accent hide-mobile" href="https://wa.me/918218762210?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+          💬 WA: 8218762210
+        </a>
+        <a class="top-utility-link wa-accent hide-mobile" href="https://wa.me/919837022521?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+          💬 WA: 9837022521
+        </a>
+        <a class="top-utility-link hide-mobile" href="/#store-location">📍 Ramnagar, UK</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Android Off-canvas Drawer Navigation -->
+  <div id="mobile-drawer" class="mobile-drawer" hidden role="dialog" aria-modal="true" aria-label="Main Menu">
+    <div id="drawer-backdrop" class="drawer-backdrop"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close menu" type="button">✕</button>
+        <a class="wordmark" href="/" aria-label="Deep Computers">
+          <span class="wordmark-icon" aria-hidden="true"><img src="/assets/logo.png" alt="Deep Computers &amp; Telecom" /></span>
+          <span class="wordmark-name">Deep Computers</span>
+        </a>
+        <a href="/catalog.html" class="header-icon-btn" aria-label="Catalog">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+      </div>
+
+      <nav class="drawer-nav">
+        <a href="/catalog.html" class="drawer-item">
+          <span>📦 Browse Product Catalog (88 Items)</span>
+          <span class="drawer-plus">→</span>
+        </a>
+        <a href="/onorder.html" class="drawer-item" style="color:#2563eb; font-weight:700;">
+          <span>⚡ On-Demand Orders (Special Models)</span>
+          <span class="drawer-plus">→</span>
+        </a>
+        <a href="/services.html" class="drawer-item drawer-item-highlight">
+          <span>🛠️ Shop Services (Laptop · Desktop · Printer)</span>
+          <span class="drawer-plus">★</span>
+        </a>
+        <a href="/#bajaj-finance" class="drawer-item">
+          <span>💳 Check Bajaj 0% EMI Eligibility</span>
+          <span class="drawer-plus">⚡</span>
+        </a>
+        <a href="/#certifications" class="drawer-item">
+          <span>🏅 Shop Certifications</span>
+          <span class="drawer-plus">→</span>
+        </a>
+      </nav>
+
+      <div class="drawer-footer">
+        <p class="drawer-footer-title">Direct Contact &amp; Support</p>
+        <div class="drawer-contacts-group">
+                    <a class="drawer-contact-btn drawer-contact-wa" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp: 9927079209</span>
+          </a>
+          <a class="drawer-contact-btn drawer-contact-wa" href="https://wa.me/918218762210?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp: 8218762210</span>
+          </a>
+          <a class="drawer-contact-btn drawer-contact-wa" href="https://wa.me/919837022521?text=Hello%20Deep%20Computers%20Team" target="_blank" rel="noopener noreferrer">
+            <span>💬 WhatsApp: 9837022521</span>
+          </a>
+          <a class="drawer-contact-btn drawer-contact-call" href="tel:+919927079209">
+            <span>📞 Call: 9927079209 / 8218762210 / 9837022521</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Services Page Hero -->
+    <section class="services-page-hero">
+      <div class="services-page-hero-inner">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> TECHNICAL WORKSHOP &amp; CHIP-LEVEL LAB · SINCE 1999</span>
+        <h1>Professional Tech Care.<br><span>Laptops, Desktops &amp; Printers.</span></h1>
+        <p>Over 25 years of hands-on technical expertise in Ramnagar. Fast on-the-spot diagnostics, transparent pricing, 100% genuine replacement components, and same-day turnaround for common repairs.</p>
+        
+        <div class="services-hero-actions">
+          <a href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20repair%20service%20for%20my%20device." target="_blank" rel="noopener noreferrer" class="btn-hero-wa">
+            <span>💬</span> WhatsApp: 9927079209 <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://wa.me/918218762210?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20repair%20service%20for%20my%20device." target="_blank" rel="noopener noreferrer" class="btn-hero-wa" style="background:#2563eb;">
+            <span>💬</span> Line 2: 8218762210 <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://wa.me/919837022521?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20repair%20service%20for%20my%20device." target="_blank" rel="noopener noreferrer" class="btn-hero-wa" style="background:#0284c7;">
+            <span>💬</span> Line 3: 9837022521 <span aria-hidden="true">↗</span>
+          </a>
+          <a href="/catalog.html" class="btn-hero-catalog">
+            <span>Explore Product Catalog →</span>
+          </a>
+        </div>
+
+        <div class="services-stats-strip">
+          <div class="services-stat-item">
+            <strong>25+ Years</strong>
+            <span>Serving Ramnagar Since 1999</span>
+          </div>
+          <div class="services-stat-item">
+            <strong>30 Minutes</strong>
+            <span>Fast SSD &amp; RAM Upgrades</span>
+          </div>
+          <div class="services-stat-item">
+            <strong>100% Genuine</strong>
+            <span>Original Parts &amp; Factory Inks</span>
+          </div>
+          <div class="services-stat-item">
+            <strong>Zero Hidden Cost</strong>
+            <span>Clear Diagnostics Before Repair</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed 3-Pillar Services Section -->
+    <section class="services-section" id="services">
+      <div class="section-wrap">
+        <div class="showcase-heading">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> WHAT WE DO AT OUR WORKSHOP</p>
+          <h2>Precision Repairs &amp; Hardware Upgrades.</h2>
+          <p class="section-intro">Choose your device category below to view specific repairs, turnaround times, and book direct service with our technician.</p>
+        </div>
+
+        <div class="services-pillars-grid">
+          <!-- Pillar 1: Laptop Service & Repair -->
+          <article class="service-pillar-card service-pillar-laptop">
+            <div class="service-pillar-header">
+              <div class="service-pillar-icon" aria-hidden="true">💻</div>
+              <div>
+                <span class="service-pillar-badge">CHIP-LEVEL &amp; HARDWARE</span>
+                <h3 class="service-pillar-title">Laptop Service &amp; Repairs</h3>
+                <p class="service-pillar-models">HP · Dell · Lenovo · ASUS · Acer · MacBook</p>
+              </div>
+            </div>
+
+            <p class="service-pillar-desc">Comprehensive repair solutions for slow, cracked, overheating, or non-powering laptops.</p>
+
+            <ul class="service-feature-list">
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Cracked Screen Replacement:</strong> High-definition IPS/LED panels, 144Hz displays &amp; flicker repair in stock.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Hinge &amp; Body Fabrication:</strong> Fixing broken laptop hinges, loose covers &amp; cabinet panel reconstruction.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>30-Min SSD &amp; RAM Upgrade:</strong> NVMe/SATA high-speed SSDs with instant data and OS migration.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Heating &amp; Fan Service:</strong> Deep blower dust unclogging &amp; arctic high-conductivity thermal repasting.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Battery &amp; Keyboard Change:</strong> Genuine OEM replacement batteries, chargers &amp; backlit keyboards.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Motherboard Chip-Level Repair:</strong> Micro-soldering, short-circuit diagnostics &amp; liquid spill recovery.
+                </div>
+              </li>
+            </ul>
+
+            <div class="service-pillar-footer">
+              <div class="service-turnaround-tag">
+                <span class="turnaround-bolt">⚡</span>
+                <span>Fast Diagnostics · 30-min to Same-day service</span>
+              </div>
+              <div class="service-action-buttons">
+                <a href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20Laptop%20Service%20or%20Repair.%20My%20laptop%20model%20and%20issue%20is%3A%20" target="_blank" rel="noopener noreferrer" class="btn-service-wa">
+                  <span>💬</span> Book Laptop Service <span aria-hidden="true">↗</span>
+                </a>
+                <a href="tel:+919927079209" class="btn-service-call" title="Call Service Technician">
+                  <span>📞</span> Call: 9927079209
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pillar 2: Desktop PC Service & Assembling -->
+          <article class="service-pillar-card service-pillar-desktop">
+            <div class="service-pillar-header">
+              <div class="service-pillar-icon" aria-hidden="true">🖥️</div>
+              <div>
+                <span class="service-pillar-badge">CUSTOM BUILDS &amp; TUNEUP</span>
+                <h3 class="service-pillar-title">Desktop PC Service &amp; Builds</h3>
+                <p class="service-pillar-models">Custom PCs · Office Workstations · Gaming Rigs</p>
+              </div>
+            </div>
+
+            <p class="service-pillar-desc">Custom assembling, system speedup, hardware diagnostics, and deep anti-static dust cleaning.</p>
+
+            <ul class="service-feature-list">
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Custom PC Assembling:</strong> Custom parts selection for gaming, AutoCAD, video editing &amp; home office.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Slow PC Speedup &amp; SSD Boost:</strong> Eliminate 5-minute booting with fast SSDs and memory upgrades.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>SMPS Power Supply Replacement:</strong> Diagnostic testing of failing power supplies &amp; surge-protected replacements.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Motherboard &amp; CPU Diagnostics:</strong> RAM slot testing, capacitor repair, BIOS recovery &amp; processor replacement.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Deep Anti-Static Dust Cleaning:</strong> Complete cabinet tear-down, fan lubrication &amp; fresh thermal compound.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Windows OS &amp; Antivirus Setup:</strong> Clean Windows 11/10 installation, official drivers &amp; Quick Heal security.
+                </div>
+              </li>
+            </ul>
+
+            <div class="service-pillar-footer">
+              <div class="service-turnaround-tag">
+                <span class="turnaround-bolt">⚡</span>
+                <span>On-the-spot Diagnostic Estimates</span>
+              </div>
+              <div class="service-action-buttons">
+                <a href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20Desktop%20PC%20Repair%20or%20Custom%20Build%20Service.%20My%20requirement%20is%3A%20" target="_blank" rel="noopener noreferrer" class="btn-service-wa">
+                  <span>💬</span> Book PC Service <span aria-hidden="true">↗</span>
+                </a>
+                <a href="tel:+919927079209" class="btn-service-call" title="Call Service Technician">
+                  <span>📞</span> Call: 9927079209
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pillar 3: Printer Service & Ink Refill -->
+          <article class="service-pillar-card service-pillar-printer">
+            <div class="service-pillar-header">
+              <div class="service-pillar-icon" aria-hidden="true">🖨️</div>
+              <div>
+                <span class="service-pillar-badge">HEAD CLEANING &amp; TONER REFILL</span>
+                <h3 class="service-pillar-title">Printer Service &amp; Ink Refills</h3>
+                <p class="service-pillar-models">Canon · Epson · HP · Brother (Ink Tank &amp; Laser)</p>
+              </div>
+            </div>
+
+            <p class="service-pillar-desc">Expert ink tank maintenance, ultrasonic nozzle flush, cartridge refilling &amp; paper roller fixes.</p>
+
+            <ul class="service-feature-list">
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Printhead Cleaning &amp; Unclogging:</strong> Ultrasonic chemical nozzle flushing to resolve missing colors &amp; white streaks.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Laser Toner Refilling:</strong> High-yield micro-fine black toner powder refill with OPC drum replacement.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Paper Jam &amp; Roller Service:</strong> Pickup roller rubber replacement, paper sensor realignment &amp; tray fixes.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Ink Tank Pipe &amp; Pad Service:</strong> Continuous ink pipe air bleeding, waste ink pad reset &amp; purge unit repair.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Motherboard &amp; Power Supply Fix:</strong> Logic board repair, USB communication error fix &amp; power board repair.
+                </div>
+              </li>
+              <li>
+                <span class="service-check">✓</span>
+                <div>
+                  <strong>Original Inks In Stock:</strong> Canon GI-790, Epson 003, HP GT52/GT53 &amp; genuine replacement cartridges.
+                </div>
+              </li>
+            </ul>
+
+            <div class="service-pillar-footer">
+              <div class="service-turnaround-tag">
+                <span class="turnaround-bolt">⚡</span>
+                <span>Fast Refills While You Wait · Clean Results</span>
+              </div>
+              <div class="service-action-buttons">
+                <a href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20Printer%20Service%20or%20Toner%20Refill.%20My%20printer%20model%20is%3A%20" target="_blank" rel="noopener noreferrer" class="btn-service-wa">
+                  <span>💬</span> Book Printer Service <span aria-hidden="true">↗</span>
+                </a>
+                <a href="tel:+919927079209" class="btn-service-call" title="Call Service Technician">
+                  <span>📞</span> Call: 9927079209
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Service Trust Bar -->
+        <div class="service-trust-bar">
+          <div class="service-trust-item">
+            <span class="service-trust-icon">🏅</span>
+            <div>
+              <strong>25+ Years Experience</strong>
+              <p>Serving Ramnagar &amp; surrounding areas since 1999</p>
+            </div>
+          </div>
+          <div class="service-trust-item">
+            <span class="service-trust-icon">🔍</span>
+            <div>
+              <strong>Transparent Diagnostics</strong>
+              <p>Honest fault finding before any repair begins</p>
+            </div>
+          </div>
+          <div class="service-trust-item">
+            <span class="service-trust-icon">🛡️</span>
+            <div>
+              <strong>100% Genuine Parts</strong>
+              <p>Authentic replacement components with testing guarantee</p>
+            </div>
+          </div>
+          <div class="service-trust-item">
+            <span class="service-trust-icon">📹</span>
+            <div>
+              <strong>CCTV &amp; Networking Too</strong>
+              <p>On-site camera installation &amp; Wi-Fi router setup</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="service-process-section">
+      <div class="section-wrap">
+        <div class="showcase-heading">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> SIMPLE &amp; HASSLE-FREE</p>
+          <h2>How Our Service Works.</h2>
+          <p class="section-intro">Experience smooth, transparent, on-time repairs with no hidden surcharges.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-num">1</div>
+            <h4>Bring or Message</h4>
+            <p>Bring your device directly to our Ramnagar counter or chat with us on WhatsApp to discuss the fault.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-num">2</div>
+            <h4>Free Diagnosis</h4>
+            <p>We test your laptop, desktop, or printer on-the-spot and quote a clear, upfront repair cost.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-num">3</div>
+            <h4>Expert Repair</h4>
+            <p>Our skilled technicians repair or upgrade your equipment using 100% genuine components.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-num">4</div>
+            <h4>Test &amp; Handover</h4>
+            <p>Complete testing in front of you with invoice and warranty on replaced parts before pickup.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Store Location Strip -->
+    <section class="contact-section section-wrap" style="padding: 48px 0;">
+      <div>
+        <p class="eyebrow">VISIT OUR WORKSHOP OR CALL</p>
+        <h2>Need help with your device today?</h2>
+        <p class="contact-lead">Connect directly with our senior technician on WhatsApp or call our shop counter.</p>
+      </div>
+      <div class="contact-actions-group">
+        <a class="button button-whatsapp" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20have%20a%20technical%20question%20regarding%20repair." target="_blank" rel="noopener noreferrer">
+          <span>💬</span> WhatsApp: 9927079209 <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button button-whatsapp" href="https://wa.me/918218762210?text=Hello%20Deep%20Computers%20Team%2C%20I%20have%20a%20technical%20question%20regarding%20repair." target="_blank" rel="noopener noreferrer" style="background:#2563eb;">
+          <span>💬</span> Line 2: 8218762210 <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button button-whatsapp" href="https://wa.me/919837022521?text=Hello%20Deep%20Computers%20Team%2C%20I%20have%20a%20technical%20question%20regarding%20repair." target="_blank" rel="noopener noreferrer" style="background:#059669;">
+          <span>💬</span> Line 3: 9837022521 <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button" href="tel:+919927079209" style="background:#0284c7; color:#fff;">
+          <span>📞</span> Call: 9927079209
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modern Comprehensive Multi-Column Footer (Inspired by FINGERS.co.in) -->
+  <footer class="modern-footer">
+    <div class="modern-footer-grid">
+      <div class="modern-footer-col">
+        <a class="wordmark footer-wordmark" href="/" aria-label="Deep Computers &amp; Telecom" style="color: #0f172a; margin-bottom: 14px; display: inline-flex;">
+          <span class="wordmark-icon" aria-hidden="true"><img src="/assets/logo.png" alt="Deep Computers &amp; Telecom" /></span>
+          <span class="wordmark-copy">
+            <span class="wordmark-name">Deep Computers <span class="wordmark-light" style="color:#64748b">&amp; Telecom</span></span>
+            <span class="wordmark-since" style="color:#0284c7">SINCE 1999 · RAMNAGAR</span>
+          </span>
+        </a>
+        <p>A New Language of Technology. Authorized retail partner and technical repair lab in Ramnagar, Uttarakhand. Specialized chip-level laptop servicing, ultrasonic printer recovery, SSD speedups, and 0% Bajaj Finserv EMI plans.</p>
+      </div>
+
+      <div class="modern-footer-col">
+        <h4>Product Categories</h4>
+        <ul class="modern-footer-links">
+          <li><a href="/catalog.html?category=laptops">💻 Laptops &amp; Desktops</a></li>
+          <li><a href="/catalog.html?category=cctv">📹 Smart CCTV &amp; Security</a></li>
+          <li><a href="/catalog.html?category=speakers">🔊 Soundbars &amp; Audio (FINGERS)</a></li>
+          <li><a href="/catalog.html?category=storage">💾 Storage &amp; SSDs</a></li>
+          <li><a href="/catalog.html?category=routers">🌐 Routers &amp; Wi-Fi 6</a></li>
+          <li><a href="/catalog.html?category=printers">🖨️ Inktank Printers &amp; Inks</a></li>
+          <li><a href="/catalog.html?category=adapters">🔌 Power Adapters &amp; Cables</a></li>
+        </ul>
+      </div>
+
+      <div class="modern-footer-col">
+        <h4>Services &amp; Finance</h4>
+        <ul class="modern-footer-links">
+          <li><a href="/services.html">🛠️ Chip-Level Laptop Repair</a></li>
+          <li><a href="/services.html">⚡ Fast SSD &amp; RAM Upgrades</a></li>
+          <li><a href="/services.html">🖨️ Ultrasonic Printer Head Clean</a></li>
+          <li><a href="/#bajaj-finance">💳 Bajaj Finserv 0% EMI</a></li>
+          <li><a href="/#brands">🏷️ Authorized Brand Partners</a></li>
+          <li><a href="/admin">🔒 Staff Admin Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="modern-footer-col">
+        <h4>Store Hours &amp; Contact</h4>
+        <div class="modern-footer-contact-item">
+          <span aria-hidden="true">📍</span>
+          <span>Deep Computers &amp; Telecom,<br>Ramnagar, Uttarakhand, India</span>
+        </div>
+        <div class="modern-footer-contact-item">
+          <span aria-hidden="true">🕒</span>
+          <span>Mon–Sun: 10:00 AM &ndash; 8:00 PM<br><small style="color: #64748b;">(Friday: Closes after 12:00 PM)</small></span>
+        </div>
+                <div class="modern-footer-contact-item">
+          <span aria-hidden="true">💬</span>
+          <span>WhatsApp: <a href="https://wa.me/919927079209" target="_blank" rel="noopener noreferrer">9927079209</a> &middot; <a href="https://wa.me/918218762210" target="_blank" rel="noopener noreferrer">8218762210</a> &middot; <a href="https://wa.me/919837022521" target="_blank" rel="noopener noreferrer">9837022521</a></span>
+        </div>
+        <div class="modern-footer-contact-item">
+          <span aria-hidden="true">📞</span>
+          <span>Call: <a href="tel:+919927079209">9927079209</a> &middot; <a href="tel:+918218762210">8218762210</a> &middot; <a href="tel:+919837022521">9837022521</a></span>
+        </div>
+        <div style="margin-top: 14px;">
+          <a href="https://maps.app.goo.gl/YVzJCfPjX2aYifuK8" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: #0284c7; background: #e0f2fe; border: 1px solid #bae6fd; padding: 8px 12px; border-radius: 6px; text-decoration: none;">
+            <span>🧭</span> Open in Google Maps ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modern-footer-bottom">
+      <span>© <span id="current-year"></span> Deep Computers &amp; Telecom. All rights reserved.</span>
+      <span>Technology partners. Practical expertise. A New Language of Technology.</span>
+    </div>
+  </footer>
+
+  <!-- Persistent Android Floating Message Pill -->
+  <a class="floating-message-pill" href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20need%20repair%20service." target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp">
+    <span class="pill-pulse-dot" aria-hidden="true"></span>
+    <span>Message</span>
+  </a>
+
+  <!-- Android Mobile Bottom Navigation Bar (Sticky Thumb Zone) -->
+  <nav class="android-bottom-bar" aria-label="Mobile Navigation">
+    <a href="/" class="android-bar-item" aria-label="Home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="/catalog.html" class="android-bar-item" aria-label="Catalog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+        <line x1="8" y1="21" x2="16" y2="21"></line>
+        <line x1="12" y1="17" x2="12" y2="21"></line>
+      </svg>
+      <span>Catalog</span>
+    </a>
+    <a href="/services.html" class="android-bar-item is-active" aria-label="Services &amp; Repairs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+      </svg>
+      <span>Services</span>
+    </a>
+    <a href="https://wa.me/919927079209?text=Hello%20Deep%20Computers%20Team%2C%20I%20have%20an%20inquiry." target="_blank" rel="noopener noreferrer" class="android-bar-item wa-item" aria-label="Chat on WhatsApp">
+      <span class="android-bar-badge" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.587 1.961.954 2.802.955h.005c3.18 0 5.767-2.587 5.768-5.766.001-3.18-2.585-5.768-5.779-5.768zm7.842 5.768c0 4.321-3.518 7.84-7.844 7.84-1.326 0-2.617-.346-3.754-.997L3.5 20.5l1.737-4.636a7.79 7.79 0 0 1-1.076-3.924c0-4.321 3.518-7.84 7.843-7.84 4.324 0 7.842 3.519 7.842 7.84z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+919927079209" class="android-bar-item" aria-label="Call Shop">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span>Call</span>
+    </a>
+  </nav>
+
+  <script>
+    const yearEl = document.querySelector("#current-year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    (function() {
+      const toggleBtn = document.querySelector("#mobile-menu-toggle");
+      const drawer = document.querySelector("#mobile-drawer");
+      const closeBtn = document.querySelector("#drawer-close-btn");
+      const backdrop = document.querySelector("#drawer-backdrop");
+
+      if (!drawer || !toggleBtn) return;
+
+      let drawerHistoryPushed = false;
+
+      function openDrawer() {
+        drawer.hidden = false;
+        document.body.style.overflow = "hidden";
+        if (!drawerHistoryPushed) {
+          try {
+            history.pushState({ mobileDrawerOpen: true }, "");
+            drawerHistoryPushed = true;
+          } catch (e) {}
+        }
+      }
+
+      function closeDrawer(skipHistory = false) {
+        drawer.hidden = true;
+        document.body.style.overflow = "";
+        if (drawerHistoryPushed && !skipHistory) {
+          drawerHistoryPushed = false;
+          if (history.state?.mobileDrawerOpen) {
+            history.back();
+          }
+        }
+      }
+
+      toggleBtn.addEventListener("click", openDrawer);
+      if (closeBtn) closeBtn.addEventListener("click", () => closeDrawer());
+      if (backdrop) backdrop.addEventListener("click", () => closeDrawer());
+
+      window.addEventListener("popstate", () => {
+        if (!drawer.hidden) {
+          drawerHistoryPushed = false;
+          closeDrawer(true);
+        }
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !drawer.hidden) {
+          closeDrawer();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

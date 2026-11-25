@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0284c7">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Admin Portal | Deep Computers &amp; Telecom</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/logo-square.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+  <link rel="stylesheet" href="/assets/styles.css?v=29">
+  <link rel="stylesheet" href="/assets/admin.css?v=31">
+  <script type="module" src="/assets/admin.js?v=31" defer></script>
+</head>
+<body class="admin-body">
+  <!-- Top Navigation -->
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <div class="admin-brand">
+        <a href="/" class="wordmark-icon" aria-label="Home"><img src="/assets/logo.png" alt="Deep Computers &amp; Telecom" /></a>
+        <div class="admin-title-box">
+          <span class="admin-title">Deep Computers &amp; Telecom</span>
+          <span class="admin-badge">Admin Portal</span>
+        </div>
+      </div>
+
+      <nav class="admin-nav-links">
+        <button id="btn-show-qr" class="btn-action edit" type="button" style="padding: 8px 14px; font-weight: 600; border-radius: 8px; font-size: 0.85rem;" onclick="window.adminApp.openQRModal()">📱 Shop QR Code</button>
+        <a href="/" class="admin-nav-link" target="_blank" rel="noopener noreferrer">View Public Site ↗</a>
+        <a href="/catalog.html" class="admin-nav-link" target="_blank" rel="noopener noreferrer">View Catalog ↗</a>
+        <div id="admin-user-pill" class="admin-user-pill" hidden>
+          <span id="admin-user-email"></span>
+          <button id="btn-signout" type="button" class="btn-signout">Sign Out</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Notifications Box -->
+    <div id="admin-alert" class="admin-alert" hidden role="alert"></div>
+
+    <!-- 1. AUTHENTICATION SECTION (Only shown when not signed in) -->
+    <section id="auth-section" class="auth-section">
+      <div class="auth-card">
+        <div class="auth-card-header">
+          <div class="auth-lock-icon">🔒</div>
+          <h2>Admin Sign In</h2>
+          <p>Sign in with your authorized Firebase account to manage products, certificates, and brands.</p>
+        </div>
+
+        <div class="auth-actions">
+          <form id="email-auth-form" class="email-auth-form" autocomplete="off">
+            <div class="form-group">
+              <label for="admin-email">Email Address</label>
+              <input id="admin-email" type="email" class="form-control" placeholder="Enter email address" autocomplete="off" required>
+            </div>
+
+            <div class="form-group">
+              <label for="admin-password">Password</label>
+              <input id="admin-password" type="password" class="form-control" placeholder="Enter password" autocomplete="new-password" required>
+            </div>
+
+            <button id="btn-email-submit" type="submit" class="button button-primary w-100">Sign in to Admin</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DASHBOARD SECTION (Shown when signed in) -->
+    <section id="dashboard-section" class="dashboard-section" hidden>
+      <!-- Store Performance & Selling KPI Metrics -->
+      <div class="admin-kpi-grid">
+        <div class="admin-kpi-card">
+          <div class="kpi-icon">📦</div>
+          <div class="kpi-info">
+            <span class="kpi-label">Total Inventory</span>
+            <strong id="kpi-total-products" class="kpi-val">0</strong>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-icon" style="background:#dcfce7;color:#15803d;">⚡</div>
+          <div class="kpi-info">
+            <span class="kpi-label">In-Stock Ready</span>
+            <strong id="kpi-in-stock" class="kpi-val">0</strong>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-icon" style="background:#ffedd5;color:#c2410c;">🔥</div>
+          <div class="kpi-info">
+            <span class="kpi-label">Best Sellers</span>
+            <strong id="kpi-bestsellers" class="kpi-val">0</strong>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-icon" style="background:#f3e8ff;color:#7e22ce;">🏷️</div>
+          <div class="kpi-info">
+            <span class="kpi-label">Deals &amp; Discounts</span>
+            <strong id="kpi-deals" class="kpi-val">0</strong>
+          </div>
+        </div>
+        <div class="admin-kpi-card">
+          <div class="kpi-icon" style="background:#e0f2fe;color:#0284c7;">💬</div>
+          <div class="kpi-info">
+            <span class="kpi-label">Pending Inquiries</span>
+            <strong id="kpi-inquiries" class="kpi-val">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="admin-tabs">
+        <button id="tab-btn-products" class="tab-btn active" type="button" data-tab="products">
+          📦 Products (<span id="count-products">0</span>)
+        </button>
+        <button id="tab-btn-ondemand" class="tab-btn" type="button" data-tab="ondemand">
+          💬 On-Demand Inquiries (<span id="count-ondemand">0</span>)
+        </button>
+        <button id="tab-btn-certificates" class="tab-btn" type="button" data-tab="certificates">
+          🏅 Certificates (<span id="count-certificates">0</span>)
+        </button>
+        <button id="tab-btn-brands" class="tab-btn" type="button" data-tab="brands">
+          🏷️ Brands (<span id="count-brands">0</span>)
+        </button>
+      </div>
+
+      <!-- TAB 1: PRODUCTS -->
+      <div id="tab-content-products" class="tab-content active">
+        <div class="panel-header">
+          <div class="panel-header-search" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <input id="search-products-input" type="text" class="form-control" placeholder="Search products by name or brand..." style="min-width: 200px;">
+            <select id="filter-products-category" class="form-control select-control">
+              <option value="All">📁 All Categories</option>
+              <option value="laptops">💻 Laptops &amp; Desktops</option>
+              <option value="cctv">📹 CCTV &amp; Security</option>
+              <option value="storage">💾 Storage</option>
+              <option value="ram">🧠 RAM</option>
+              <option value="routers">🌐 Routers &amp; Wi-Fi</option>
+              <option value="printers">🖨️ Printers &amp; Scanners</option>
+              <option value="ink">🖋️ Ink &amp; Toners</option>
+              <option value="adapters">🔌 Adapters &amp; Chargers</option>
+              <option value="speakers">🔊 Speakers &amp; Audio</option>
+              <option value="accessories">⌨️ Peripherals &amp; Accessories</option>
+              <option value="cables">🔗 Cables &amp; Connectors</option>
+              <option value="daily-use">⚡ Daily Tech Essentials</option>
+            </select>
+            <select id="filter-products-brand" class="form-control select-control" style="max-width: 150px;">
+              <option value="All">🏷️ All Brands</option>
+            </select>
+            <select id="filter-products-stock" class="form-control select-control" style="max-width: 150px;">
+              <option value="All">⚡ All Stock</option>
+              <option value="in_stock">✓ In Stock Only</option>
+              <option value="out_of_stock">✕ Out of Stock</option>
+              <option value="on_order">⌛ On Order Only</option>
+            </select>
+            <select id="filter-products-badge" class="form-control select-control" style="max-width: 160px;">
+              <option value="All">🌟 All Badges</option>
+              <option value="bestseller">🔥 Best Sellers</option>
+              <option value="hot_deal">⚡ Hot Deals</option>
+              <option value="featured">⭐ Featured</option>
+              <option value="new_arrival">🆕 New Arrivals</option>
+            </select>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button id="btn-refresh-products" class="btn-action edit" type="button" style="padding: 10px 14px; font-weight: 600; border-radius: 8px;" onclick="window.adminApp.loadProducts()">⟳ Refresh</button>
+            <button id="btn-add-product" class="button button-primary" type="button">+ Add New Product</button>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Selling Price &amp; MRP</th>
+                <th>Stock Status (Click to Toggle)</th>
+                <th>Selling Badge</th>
+                <th>Visibility</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="products-tbody">
+              <tr><td colspan="8" class="text-center py-4">Loading products...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="admin-products-pagination" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #ffffff; border: 1px solid var(--admin-border); border-top: none; border-radius: 0 0 10px 10px;">
+          <span id="admin-products-page-info" style="font-size: 0.85rem; color: var(--admin-muted); font-weight: 500;">Showing 1-25 of 88 products</span>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" id="admin-prod-prev-btn" class="btn-action edit" style="padding: 6px 14px; font-weight: 600; font-size: 0.82rem;">← Previous</button>
+            <button type="button" id="admin-prod-next-btn" class="btn-action edit" style="padding: 6px 14px; font-weight: 600; font-size: 0.82rem;">Next →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: CERTIFICATES -->
+      <div id="tab-content-certificates" class="tab-content">
+        <div class="panel-header">
+          <div>
+            <h3>Official Partner Credentials &amp; Certifications</h3>
+            <p class="panel-sub">Verified accreditations displayed on the public website.</p>
+          </div>
+          <button id="btn-add-certificate" class="button button-primary" type="button">+ Add New Certificate</button>
+        </div>
+
+        <div class="table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Issuer</th>
+                <th>Credential ID</th>
+                <th>Validity</th>
+                <th>Order</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="certificates-tbody">
+              <tr><td colspan="7" class="text-center py-4">Loading certificates...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: BRANDS -->
+      <div id="tab-content-brands" class="tab-content">
+        <div class="panel-header">
+          <div>
+            <h3>Authorized Technology Brands</h3>
+            <p class="panel-sub">Technology partners and brands represented by Deep Computers &amp; Telecom.</p>
+          </div>
+          <button id="btn-add-brand" class="button button-primary" type="button">+ Add New Brand</button>
+        </div>
+
+        <div class="table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Logo</th>
+                <th>Brand Name</th>
+                <th>Summary</th>
+                <th>Website URL</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="brands-tbody">
+              <tr><td colspan="6" class="text-center py-4">Loading brands...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 4: ON-DEMAND INQUIRIES -->
+      <div id="tab-content-ondemand" class="tab-content">
+        <div class="panel-header">
+          <div>
+            <h3>Customer On-Demand Inquiries &amp; Orders</h3>
+            <p class="panel-sub">Orders requested by customers on-demand. Confirm specifications and share price quotes directly via WhatsApp.</p>
+          </div>
+          <button id="btn-refresh-ondemand" class="btn-action edit" type="button" style="padding: 10px 14px; font-weight: 600; border-radius: 8px;" onclick="window.adminApp.loadOnDemand()">⟳ Refresh Inquiries</button>
+        </div>
+
+        <div class="table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order Ref</th>
+                <th>Product</th>
+                <th>Brand</th>
+                <th>Customer</th>
+                <th>Contact</th>
+                <th>Notes / Requirements</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ondemand-tbody">
+              <tr><td colspan="9" class="text-center py-4">Loading inquiries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- MODALS -->
+  <!-- ========================================================= -->
+
+  <!-- PRODUCT MODAL -->
+  <div id="modal-product" class="modal-backdrop" hidden>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modal-product-title">Add Product</h3>
+        <button type="button" class="modal-close" data-close="modal-product">&times;</button>
+      </div>
+      <form id="form-product" class="modal-form" novalidate>
+        <input type="hidden" id="prod-id">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="prod-name">Product Name *</label>
+            <input type="text" id="prod-name" class="form-control" required placeholder="e.g. Asus ROG Strix G16">
+          </div>
+          <div class="form-group">
+            <label for="prod-category">Product Category *</label>
+            <select id="prod-category" class="form-control" required>
+              <option value="laptops">💻 Laptops &amp; Desktops</option>
+              <option value="cctv">📹 CCTV &amp; Security Systems</option>
+              <option value="storage">💾 Storage (SSD, Pen Drives, HDD)</option>
+              <option value="ram">🧠 RAM (Desktop &amp; Laptop Memory)</option>
+              <option value="routers">🌐 Routers &amp; Wi-Fi Networking</option>
+              <option value="printers">🖨️ Printers &amp; Scanners</option>
+              <option value="ink">🖋️ Ink Cartridges &amp; Toners</option>
+              <option value="adapters">🔌 Adapters &amp; Chargers</option>
+              <option value="speakers">🔊 Speakers, Soundbars &amp; Audio</option>
+              <option value="accessories">⌨️ Peripherals &amp; Accessories (Keyboards, Mice)</option>
+              <option value="cables">🔗 Cables &amp; Connectors (HDMI, LAN)</option>
+              <option value="daily-use">⚡ Daily Tech Essentials &amp; Tools</option>
+              <option value="__custom__">➕ Other / Custom Category...</option>
+            </select>
+            <input type="text" id="prod-custom-category" class="form-control" placeholder="Type new category name (e.g. Monitors, Gaming)" style="display: none; margin-top: 8px;">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="prod-brand">Brand</label>
+            <select id="prod-brand" class="form-control">
+              <option value="">No Brand Selected</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prod-warranty">Warranty Coverage</label>
+            <input type="text" id="prod-warranty" class="form-control" placeholder="e.g. 1 Year Official Brand Warranty">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="prod-price">Selling Offer Price in INR (₹) *</label>
+            <input type="number" id="prod-price" class="form-control" step="0.01" placeholder="e.g. 45990">
+          </div>
+          <div class="form-group">
+            <label for="prod-orig-price">Original M.R.P. in INR (₹) <span id="prod-discount-preview" style="font-size: 0.76rem; font-weight: 700; color: #16a34a; margin-left: 6px;"></span></label>
+            <input type="number" id="prod-orig-price" class="form-control" step="0.01" placeholder="e.g. 52000 (Calculates % discount)">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="prod-stock-status">Store Stock Availability *</label>
+            <select id="prod-stock-status" class="form-control">
+              <option value="in_stock">✓ In Stock (Ready at Ramnagar Shop)</option>
+              <option value="on_order">⌛ Available on Order (24-48 Hours)</option>
+              <option value="out_of_stock">✕ Out of Stock (Temporarily Unavailable)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prod-badge">Selling Highlight Tag / Badge</label>
+            <select id="prod-badge" class="form-control">
+              <option value="">None (Standard Product)</option>
+              <option value="bestseller">🔥 Best Seller (Top Demand Highlight)</option>
+              <option value="hot_deal">⚡ Hot Deal (Special Offer / Clearance)</option>
+              <option value="featured">⭐ Featured Recommendation</option>
+              <option value="new_arrival">🆕 New Arrival (Fresh Stock)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-subtype-input">Product Type / Subtype</label>
+          <input type="text" id="prod-subtype-input" class="form-control" placeholder="e.g. Wireless, USB 3.2, NVMe M.2, Combo Set, Inktank">
+        </div>
+
+        <input type="hidden" id="prod-subtype" value="">
+
+        <!-- Product Image Source (Link vs Upload) -->
+        <div class="form-group" style="margin-bottom: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label style="font-weight: 700; font-size: 0.88rem; color: #0f172a; margin: 0;">🖼️ Product Image</label>
+            <span style="font-size: 0.78rem; color: #64748b;">Provide Web / Drive Link or Upload File</span>
+          </div>
+
+          <!-- Mode Switcher Tabs -->
+          <div class="img-mode-tabs" style="display: flex; gap: 4px; padding: 4px; background: #e2e8f0; border-radius: 8px; margin-bottom: 10px; width: fit-content;">
+            <button type="button" id="tab-btn-prod-img-url" class="img-tab-btn is-active" style="padding: 6px 14px; font-size: 0.82rem; font-weight: 700; border: 0; border-radius: 6px; background: #ffffff; color: #0284c7; cursor: pointer; display: flex; align-items: center; gap: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+              🌐 Web Link / Google Drive
+            </button>
+            <button type="button" id="tab-btn-prod-img-file" class="img-tab-btn" style="padding: 6px 14px; font-size: 0.82rem; font-weight: 600; border: 0; border-radius: 6px; background: transparent; color: #64748b; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+              📁 Upload from Device / Drive
+            </button>
+          </div>
+
+          <!-- Mode 1: Online Web Link / Google Drive (Default) -->
+          <div id="panel-prod-img-url" style="display: block;">
+            <div style="position: relative;">
+              <input type="text" id="prod-image-url-input" class="form-control" placeholder="Paste direct link or Google Drive share link (https://...)" style="padding-right: 76px;">
+              <button type="button" id="btn-preview-prod-url" style="position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 0.75rem; font-weight: 600; padding: 5px 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0284c7; cursor: pointer;">
+                Preview
+              </button>
+            </div>
+            <p style="font-size: 0.76rem; color: #64748b; margin: 4px 0 0 2px;">
+              🔗 Direct links &amp; Google Drive share links are auto-converted to direct-view images. Previews immediately.
+            </p>
+          </div>
+
+          <!-- Mode 2: Upload File from Device / Drive -->
+          <div id="panel-prod-img-file" style="display: none;">
+            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 4px;">
+              <label class="button button-primary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 0.85rem; border-radius: 8px;">
+                📁 Choose Image File
+                <input type="file" id="prod-image-file" accept="image/*" style="display: none;">
+              </label>
+              <span id="prod-upload-status" style="font-size: 0.82rem; color: var(--admin-muted);">Stored locally on shop laptop</span>
+            </div>
+          </div>
+
+          <!-- Underlying synchronized input -->
+          <input type="hidden" id="prod-image" value="">
+
+          <!-- Live Image Preview Card -->
+          <div id="prod-image-preview-wrap" style="margin-top: 10px; display: none; align-items: center; gap: 12px; padding: 8px 12px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; width: fit-content;">
+            <img id="prod-image-preview" src="" alt="Preview" style="max-height: 70px; max-width: 100px; border-radius: 6px; object-fit: contain; background: #f8fafc; border: 1px solid #e2e8f0;">
+            <div>
+              <span id="prod-preview-badge" style="font-size: 0.72rem; font-weight: 700; color: #166534; background: #dcfce7; padding: 2px 7px; border-radius: 4px; display: inline-block;">✓ Image Ready</span>
+              <div style="margin-top: 4px;">
+                <button type="button" id="btn-remove-prod-image" style="font-size: 0.72rem; color: #ef4444; background: none; border: none; cursor: pointer; padding: 0; text-decoration: underline;">
+                  Remove image
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prod-url">Product / Manufacturer Web Link</label>
+          <input type="text" id="prod-url" class="form-control" placeholder="https://...">
+        </div>
+
+        <div class="form-group">
+          <label for="prod-desc">Description</label>
+          <textarea id="prod-desc" class="form-control" rows="3" placeholder="Specifications, highlights, and warranty details..."></textarea>
+        </div>
+
+        <input type="hidden" id="prod-order" value="0">
+        <div class="form-group checkbox-group" style="margin-bottom: 20px;">
+          <label class="custom-checkbox">
+            <input type="checkbox" id="prod-published" checked>
+            <span>Is Published (Visible to public)</span>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="button button-light" data-close="modal-product">Cancel</button>
+          <button type="submit" class="button button-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE MODAL -->
+  <div id="modal-certificate" class="modal-backdrop" hidden>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modal-cert-title">Add Certificate</h3>
+        <button type="button" class="modal-close" data-close="modal-certificate">&times;</button>
+      </div>
+      <form id="form-certificate" class="modal-form" novalidate>
+        <input type="hidden" id="cert-id">
+        <div class="form-group">
+          <label for="cert-name">Certificate Title *</label>
+          <input type="text" id="cert-name" class="form-control" required placeholder="e.g. Authorized Intel Gold Technology Provider">
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="cert-issuer">Issuer</label>
+            <input type="text" id="cert-issuer" class="form-control" placeholder="e.g. Intel Corporation">
+          </div>
+          <div class="form-group">
+            <label for="cert-cred-id">Credential ID</label>
+            <input type="text" id="cert-cred-id" class="form-control" placeholder="e.g. INT-98234-IN">
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="cert-issued">Issued Date</label>
+            <input type="date" id="cert-issued" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="cert-expires">Expires Date</label>
+            <input type="date" id="cert-expires" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Document / Certificate File</label>
+          <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 8px;">
+            <label class="button button-primary" style="cursor: pointer; margin: 0; padding: 7px 14px; font-size: 0.85rem; border-radius: 8px;">
+              📁 Upload Certificate
+              <input type="file" id="cert-doc-file" accept="image/*,.pdf" style="display: none;">
+            </label>
+            <span id="cert-upload-status" style="font-size: 0.82rem; color: var(--admin-muted);">Stored locally on shop laptop</span>
+          </div>
+          <input type="text" id="cert-doc" class="form-control" placeholder="/assets/uploads/cert.pdf or https://...">
+        </div>
+
+        <div class="form-group">
+          <label for="cert-desc">Description</label>
+          <textarea id="cert-desc" class="form-control" rows="2"></textarea>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="cert-order">Display Order</label>
+            <input type="number" id="cert-order" class="form-control" value="0">
+          </div>
+          <div class="form-group checkbox-group">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="cert-published" checked>
+              <span>Is Published</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="button button-light" data-close="modal-certificate">Cancel</button>
+          <button type="submit" class="button button-primary">Save Certificate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- BRAND MODAL -->
+  <div id="modal-brand" class="modal-backdrop" hidden>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modal-brand-title">Add Brand</h3>
+        <button type="button" class="modal-close" data-close="modal-brand">&times;</button>
+      </div>
+      <form id="form-brand" class="modal-form" novalidate>
+        <input type="hidden" id="brand-id">
+        <div class="form-group">
+          <label for="brand-name">Brand Name *</label>
+          <input type="text" id="brand-name" class="form-control" required placeholder="e.g. Asus, Intel, CP Plus...">
+        </div>
+
+        <div class="form-group">
+          <label for="brand-summary">Summary / Tagline</label>
+          <input type="text" id="brand-summary" class="form-control" placeholder="e.g. High-performance gaming and business laptops">
+        </div>
+
+        <div class="form-row-2">
+        <div class="form-group">
+          <label style="font-weight: 700; font-size: 0.88rem; color: #0f172a; margin-bottom: 4px;">Brand Logo</label>
+          <div class="img-mode-tabs" style="display: flex; gap: 4px; padding: 3px; background: #e2e8f0; border-radius: 8px; margin-bottom: 8px; width: fit-content;">
+            <button type="button" id="tab-btn-brand-logo-url" class="img-tab-btn is-active" style="padding: 5px 12px; font-size: 0.78rem; font-weight: 700; border: 0; border-radius: 6px; background: #ffffff; color: #0284c7; cursor: pointer;">
+              🌐 Web Link / Drive
+            </button>
+            <button type="button" id="tab-btn-brand-logo-file" class="img-tab-btn" style="padding: 5px 12px; font-size: 0.78rem; font-weight: 600; border: 0; border-radius: 6px; background: transparent; color: #64748b; cursor: pointer;">
+              📁 Upload File
+            </button>
+          </div>
+          <div id="panel-brand-logo-url" style="display: block;">
+            <input type="text" id="brand-logo-url-input" class="form-control" placeholder="Paste logo link or Google Drive link (https://...)">
+          </div>
+          <div id="panel-brand-logo-file" style="display: none;">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <label class="button button-primary" style="cursor: pointer; margin: 0; padding: 6px 12px; font-size: 0.82rem; border-radius: 8px;">
+                📁 Choose Logo File
+                <input type="file" id="brand-logo-file" accept="image/*" style="display: none;">
+              </label>
+              <span id="brand-upload-status" style="font-size: 0.8rem; color: var(--admin-muted);">Stored locally</span>
+            </div>
+          </div>
+          <input type="hidden" id="brand-logo" value="">
+          <div id="brand-logo-preview-wrap" style="margin-top: 8px; display: none;">
+            <img id="brand-logo-preview" src="" alt="Logo Preview" style="max-height: 50px; border-radius: 6px; border: 1px solid var(--admin-border); object-fit: contain; padding: 2px; background: #fff;">
+          </div>
+        </div>
+          <div class="form-group">
+            <label for="brand-website">Official Website URL</label>
+            <input type="text" id="brand-website" class="form-control" placeholder="https://...">
+          </div>
+        </div>
+
+        <input type="hidden" id="brand-order" value="0">
+        <div class="form-group checkbox-group" style="margin-bottom: 20px;">
+          <label class="custom-checkbox">
+            <input type="checkbox" id="brand-published" checked>
+            <span>Is Published</span>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="button button-light" data-close="modal-brand">Cancel</button>
+          <button type="submit" class="button button-primary">Save Brand</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- QR CODE MODAL FOR SHOP / COUNTER -->
+  <div id="modal-qr" class="modal-backdrop" hidden>
+    <div class="modal-box" style="max-width: 480px; text-align: center;">
+      <div class="modal-header">
+        <h3>📱 Shop Customer QR Code</h3>
+        <button type="button" class="modal-close" data-close="modal-qr">&times;</button>
+      </div>
+      <div class="modal-form" style="padding: 24px;">
+        <p style="margin-bottom: 16px; font-size: 0.92rem; color: var(--admin-muted);">
+          Scan this QR code with any smartphone camera to open the <strong>Deep Computers &amp; Telecom</strong> catalog:
+        </p>
+        <div id="qr-container" style="display: flex; justify-content: center; margin: 16px 0;">
+          <img id="qr-image" src="" alt="Store QR Code" style="width: 220px; height: 220px; border-radius: 12px; border: 2px solid var(--admin-border); padding: 8px; background: #fff;">
+        </div>
+        <p id="qr-link-text" style="font-size: 0.85rem; word-break: break-all; color: var(--admin-primary); margin-bottom: 20px; font-weight: 600;"></p>
+        <div class="modal-actions" style="justify-content: center; gap: 12px;">
+          <button type="button" class="button button-light" data-close="modal-qr">Close</button>
+          <button type="button" class="button button-primary" onclick="window.adminApp.printQR()">🖨️ Print for Shop Counter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

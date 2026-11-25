@@ -1,0 +1,49 @@
+# Python bytecode and tooling caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment and generated credentials
+.env
+.env.*
+!.env.example
+worker_config.json
+LIVE_SHOP_URL.txt
+
+# Local database backups and transient SQLite files
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+database/backups/
+*-wal
+*-shm
+*-journal
+
+# Build and frontend tooling output
+build/
+dist/
+coverage/
+node_modules/
+.vercel/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Logs and temporary files
+*.tmp
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

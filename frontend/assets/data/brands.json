@@ -1,0 +1,274 @@
+{
+  "brands": [
+    {
+      "id": 39,
+      "name": "Edenic",
+      "summary": "",
+      "website_url": "",
+      "logo_url": "https://uploads-ssl.webflow.com/63b7451cd657057417c40782/63bdd4ac4931c15efd2a2503_Edenic%20Bubble.png",
+      "display_order": 0,
+      "is_published": 1
+    },
+    {
+      "id": 40,
+      "name": "CyberX",
+      "summary": "",
+      "website_url": "",
+      "logo_url": "https://tse1.mm.bing.net/th/id/OIP.5XkQ5r35s82Z46FUYJep9AHaD3?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "display_order": 0,
+      "is_published": 1
+    },
+    {
+      "id": 41,
+      "name": "Geonix",
+      "summary": "",
+      "website_url": "",
+      "logo_url": "",
+      "display_order": 0,
+      "is_published": 1
+    },
+    {
+      "id": 1,
+      "name": "Dell",
+      "summary": "World-class laptops, business desktops, and professional monitors",
+      "website_url": "https://www.dell.com/",
+      "logo_url": "",
+      "display_order": 1,
+      "is_published": 1
+    },
+    {
+      "id": 2,
+      "name": "HP",
+      "summary": "Laptops, desktops, Smart Tank printers, and genuine accessories",
+      "website_url": "https://www.hp.com/",
+      "logo_url": "",
+      "display_order": 2,
+      "is_published": 1
+    },
+    {
+      "id": 3,
+      "name": "Lenovo",
+      "summary": "ThinkPad and IdeaPad laptops, all-in-one PCs, and tablets",
+      "website_url": "https://www.lenovo.com/",
+      "logo_url": "",
+      "display_order": 3,
+      "is_published": 1
+    },
+    {
+      "id": 4,
+      "name": "ASUS",
+      "summary": "High-performance gaming laptops, motherboards, and displays",
+      "website_url": "https://www.asus.com/",
+      "logo_url": "",
+      "display_order": 4,
+      "is_published": 1
+    },
+    {
+      "id": 5,
+      "name": "Acer",
+      "summary": "Reliable everyday laptops, displays, and business technology",
+      "website_url": "https://www.acer.com/",
+      "logo_url": "",
+      "display_order": 5,
+      "is_published": 1
+    },
+    {
+      "id": 8,
+      "name": "CP Plus",
+      "summary": "India's leading CCTV, HD DVRs, smart cameras, and security systems",
+      "website_url": "https://www.cpplusworld.com/",
+      "logo_url": "",
+      "display_order": 6,
+      "is_published": 1
+    },
+    {
+      "id": 6,
+      "name": "Hikvision",
+      "summary": "Advanced IP cameras, Turbo HD DVRs, and network security",
+      "website_url": "https://www.hikvision.com/",
+      "logo_url": "",
+      "display_order": 7,
+      "is_published": 1
+    },
+    {
+      "id": 12,
+      "name": "D-Link",
+      "summary": "Gigabit Wi-Fi routers, enterprise switches, and networking cables",
+      "website_url": "https://www.dlink.com/",
+      "logo_url": "",
+      "display_order": 8,
+      "is_published": 1
+    },
+    {
+      "id": 11,
+      "name": "TP-Link",
+      "summary": "High-speed dual-band Wi-Fi routers and range extenders",
+      "website_url": "https://www.tp-link.com/",
+      "logo_url": "",
+      "display_order": 9,
+      "is_published": 1
+    },
+    {
+      "id": 10,
+      "name": "Logitech",
+      "summary": "World-renowned mice, keyboards, wireless desktop combos, and webcams",
+      "website_url": "https://www.logitech.com/",
+      "logo_url": "",
+      "display_order": 10,
+      "is_published": 1
+    },
+    {
+      "id": 36,
+      "name": "Fingers",
+      "summary": "A New Language of Technology: Avant-garde digital accessories, Bluetooth soundbars, wireless desksets, and gaming peripherals",
+      "website_url": "https://www.fingers.co.in/",
+      "logo_url": "",
+      "display_order": 10,
+      "is_published": 1
+    },
+    {
+      "id": 14,
+      "name": "Canon",
+      "summary": "PIXMA Inktank printers, laser printers, and original inks",
+      "website_url": "https://www.canon.co.in/",
+      "logo_url": "",
+      "display_order": 11,
+      "is_published": 1
+    },
+    {
+      "id": 26,
+      "name": "Brother",
+      "summary": "Heavy-duty inktank and duplex laser printers for home and office",
+      "website_url": "https://www.brother.in/",
+      "logo_url": "",
+      "display_order": 12,
+      "is_published": 1
+    },
+    {
+      "id": 13,
+      "name": "Bajaj Finserv",
+      "summary": "Easy 0% EMI finance partner for laptops and electronics",
+      "website_url": "https://www.bajajfinserv.in/",
+      "logo_url": "https://www.google.com/s2/favicons?domain=bajajfinserv.in&sz=128",
+      "display_order": 13,
+      "is_published": 1
+    },
+    {
+      "id": 27,
+      "name": "Epson",
+      "summary": "EcoTank high-yield printers and original micro-piezo inks",
+      "website_url": "https://www.epson.co.in/",
+      "logo_url": "",
+      "display_order": 13,
+      "is_published": 1
+    },
+    {
+      "id": 28,
+      "name": "Zebronics",
+      "summary": "Affordable computer peripherals, curved monitors, speakers, and cabinets",
+      "website_url": "https://zebronics.com/",
+      "logo_url": "",
+      "display_order": 14,
+      "is_published": 1
+    },
+    {
+      "id": 9,
+      "name": "Lapcare",
+      "summary": "Certified laptop batteries, power adapters, SSDs, and accessories",
+      "website_url": "https://www.lapcare.com/",
+      "logo_url": "",
+      "display_order": 15,
+      "is_published": 1
+    },
+    {
+      "id": 30,
+      "name": "Intex",
+      "summary": "Line-interactive UPS, monitors, SMPS, and essential peripherals",
+      "website_url": "https://www.intex.in/",
+      "logo_url": "",
+      "display_order": 16,
+      "is_published": 1
+    },
+    {
+      "id": 31,
+      "name": "SanDisk",
+      "summary": "High-speed flash drives, OTG Type-C pen drives, and memory cards",
+      "website_url": "https://www.westerndigital.com/brand/sandisk",
+      "logo_url": "",
+      "display_order": 17,
+      "is_published": 1
+    },
+    {
+      "id": 32,
+      "name": "Western Digital",
+      "summary": "WD Green/Blue SSDs and Elements portable external hard drives",
+      "website_url": "https://www.westerndigital.com/",
+      "logo_url": "",
+      "display_order": 18,
+      "is_published": 1
+    },
+    {
+      "id": 33,
+      "name": "Seagate",
+      "summary": "Barracuda desktop drives and Expansion external backup HDDs",
+      "website_url": "https://www.seagate.com/",
+      "logo_url": "",
+      "display_order": 19,
+      "is_published": 1
+    },
+    {
+      "id": 34,
+      "name": "Crucial",
+      "summary": "Micron 3D NAND SATA SSDs, PCIe NVMe M.2 SSDs, and high-speed RAM",
+      "website_url": "https://www.crucial.com/",
+      "logo_url": "",
+      "display_order": 20,
+      "is_published": 1
+    },
+    {
+      "id": 35,
+      "name": "Quick Heal",
+      "summary": "Complete internet security, antivirus, and ransomware protection",
+      "website_url": "https://www.quickheal.co.in/",
+      "logo_url": "",
+      "display_order": 21,
+      "is_published": 1
+    },
+    {
+      "id": 37,
+      "name": "Terabyte",
+      "summary": "4K HDMI cables, Cat6 network cables, laptop stands, and USB hubs",
+      "website_url": "https://terabyte.in/",
+      "logo_url": "",
+      "display_order": 23,
+      "is_published": 1
+    },
+    {
+      "id": 38,
+      "name": "Frontech",
+      "summary": "Power supplies, PC cabinets, gaming mice, and everyday electronics",
+      "website_url": "https://frontechonline.com/",
+      "logo_url": "",
+      "display_order": 24,
+      "is_published": 1
+    },
+    {
+      "id": 42,
+      "name": "Image King",
+      "summary": "High-quality laser printers, toner cartridges, and imaging equipment.",
+      "website_url": "https://imageking.in",
+      "logo_url": "https://imageking.in/wp-content/uploads/2021/08/logo.png",
+      "display_order": 25,
+      "is_published": 1
+    },
+    {
+      "id": 43,
+      "name": "TVS",
+      "summary": "India's leading brand for Point-of-Sale (POS) thermal receipt printers, barcode scanners, and retail automation.",
+      "website_url": "https://tvs-e.in",
+      "logo_url": "https://tvs-e.in/wp-content/uploads/2021/04/TVS-E-Logo.png",
+      "display_order": 26,
+      "is_published": 1
+    }
+  ]
+}
